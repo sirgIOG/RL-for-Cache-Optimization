@@ -1,0 +1,16 @@
+{
+  "name": "cache-rl-platform",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace server",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "build": "npm run build --workspace client",
+    "start": "npm run start --workspace server"
+  }
+}

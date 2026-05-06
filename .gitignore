@@ -1,0 +1,13 @@
+node_modules/
+dist/
+build/
+.env
+*.log
+coverage/
+uploads/
+server/uploads/
+server/storage/
+client/node_modules/
+server/node_modules/
+__pycache__/
+*.pyc

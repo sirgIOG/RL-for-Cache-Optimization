@@ -1,0 +1,2 @@
+**Cache RL Platform** is a full-stack application that simulates and compares cache replacement strategies, combining traditional algorithms like FIFO, LRU, LFU, and MRU with a Reinforcement Learning (DQN-based) approach. Built using a MERN-style architecture with a Python bridge for model inference, it provides an interactive dashboard to run workloads, visualize performance metrics, and analyze results. The platform supports MongoDB for persistence with a JSON fallback and is designed to highlight real-world trade-offs between classical heuristics and learned policies.
+
