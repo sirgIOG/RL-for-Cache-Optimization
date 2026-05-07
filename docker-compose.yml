@@ -1,0 +1,43 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: cache-rl-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  server:
+    build:
+      context: ./server
+    container_name: cache-rl-server
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      PORT: 4000
+      CLIENT_ORIGIN: http://localhost:8080
+      MONGODB_URI: mongodb://mongo:27017/cache_rl_platform
+      MODEL_PATH: dqn_colab (1).pt
+      PYTHON_BIN: python3
+    ports:
+      - "4000:4000"
+    volumes:
+      - server_uploads:/app/uploads
+      - server_storage:/app/storage
+
+  client:
+    build:
+      context: ./client
+    container_name: cache-rl-client
+    restart: unless-stopped
+    depends_on:
+      - server
+    ports:
+      - "8080:80"
+
+volumes:
+  mongo_data:
+  server_uploads:
+  server_storage:
